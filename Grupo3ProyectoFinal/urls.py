@@ -23,11 +23,11 @@ urlpatterns = [
 
     path('', inicio, name="inicio"),
 
-    path('eventos/', include('apps.eventos.urls')),
-
     path('acercade/', include('apps.acercade.urls')),
 
     path('categorias/', include('apps.categorias.urls')),
 
-    path('contacto/', include('apps.contacto.urls'))
+    path('contacto/', include('apps.contacto.urls')),
+
+    path('login/', include('apps.login.urls'))
 ]
