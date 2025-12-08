@@ -1,15 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>CATEGORIAS</title>
 </head>
 <body>
-    <h1>Categorias</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Earum porro blanditiis reiciendis sequi modi magnam rerum dolores debitis, 
-        odio eum dolore eveniet maiores ut? Tempore quod reprehenderit numquam vel vero.</p>
+    <header>
+        <div class="header-container">
+           <h1>Categorias</h1>
+           <a href="/login" class="btn-login">Ingresar</a>
+        </div>
+    </header>
+    <nav>
+        <ul class="a-hover">
+          <li>
+            <a href="/">Inicio</a>
+        </li>
+        <li>
+                <a href="/categorias">Categorias</a>
+        </li>
+        <li>
+                <a href="/acercade">Acerca de</a>
+        </li>
+        <li>
+                <a href="/contacto">Contactos</a>
+        </li>
+        </ul>
+    </nav>
+  
+    <p>Bienvenido/a a la sección de categorias, donde encontrarás distintas tematicas de nuestro diario</p>
     
+    <footer class="footer-content">
+        <p>Derechos de autor © 2025 | TechnoDiario</p>
+    </footer>
+
 </body>
 </html>

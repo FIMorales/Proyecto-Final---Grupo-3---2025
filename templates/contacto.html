@@ -1,15 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>CONTACTO</title>
 </head>
+
 <body>
-    <h1>Contactos</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Atque tenetur, maxime ad facilis veniam ullam, voluptatibus nihil incidunt 
-        alias inventore iste dignissimos consequatur vero deserunt! Porro ipsam provident 
-        ab nobis.</p>
+    <header>
+        <div class="header-container">
+            <h1>Contactos</h1>
+            <a href="/login" class="btn-login">Ingresar</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="a-hover">
+        <li>
+            <a href="/">Inicio</a>
+        </li>
+        <li>
+                <a href="/categorias">Categorias</a>
+        </li>
+        <li>
+                <a href="/acercade">Acerca de</a>
+        </li>
+        <li>
+                <a href="/contacto">Contactos</a>
+        </li>
+        </ul>
+    </nav>
+
+    <p>
+        Podes contactarnos en nuestro correco electronico technodiario@gmail.com, o también en nuestras redes sociales:
+    </p>
+    <div>
+    <p><a href="https://www.facebook.com/?locale=es_LA" style="color: black;">Facebook</a></p>
+    <p><a href="https://x.com/?lang=es" style="color: black;">Twitter/X</a></p>
+    <p><a href="https://www.instagram.com/" style="color: black;">Instagram</a></p>
+    </div>
+
+    <footer class="footer-content">
+        <p>Derechos de autor © 2025 | TechnoDiario</p>
+    </footer>
 </body>
 </html>
