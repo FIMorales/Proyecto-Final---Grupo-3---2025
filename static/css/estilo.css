@@ -1,10 +1,10 @@
 body {
-    background-color: #fffbb7;
-    color: #000000;
+    background-color: #FFFFFF; /* FONDO BLANCO PURO */
+    color: #222;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    }
+}
 
 .centrado {
     text-align: center;
@@ -19,81 +19,82 @@ body {
 }
 
 .estiloborder {
-    border: 3px solid rgb(0, 0, 0);
+    border: 3px solid #0A3D62;
 }
 
 header {
-    background-color: #4120fa;
+    background-color: #0A3D62; /* azul petróleo */
     color: #fff;
     text-align: center;
     padding: 20px;
-    }   
+}
 
 nav {
-    background-color: #180062;
+    background-color: #06273F; /* azul más oscuro */
     padding: 10px;
-    }
-ul{
+}
+
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
     text-align: center;
-}     
+}
 
-li{
+li {
     margin-right: 20px;
 }
 
-a{
+a {
     color: #fff;
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 5px;
 }
 
-.a-hover{
-    background-color: #180062;
+a:hover {
+    background-color: rgba(255,255,255,0.15);
 }
 
-ul li{
+ul li {
     display: inline-block;
     padding: 0px 20px;
 }
 
 section {
-    padding: 20px; /* espaciado para la sección de 20 pixeles */
+    padding: 20px;
 }
 
 footer {
-    background-color: #180062; /* Color de fondo del footer */
+    background-color: #06273F;
     color: #fff;
-    padding: 20px 0; 
-    }
-
-.footer-content {
-    margin: 0 auto; /* Centrar el contenido del footer horizontalmente */
-    text-align: center; 
+    padding: 20px 0;
 }
 
+.footer-content {
+    margin: 0 auto;
+    text-align: center;
+}
 
-/*Boton Login*/
+/* Botón Login */
 
 .header-container {
     display: flex;
-    justify-content: space-between; /* separa el título y el botón */
-    align-items: center; /* los alinea verticalmente */
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btn-login {
-    background-color:  #ffffff;
-    color:  #180062;
+    background-color: #ffffff;
+    color: #0A3D62;
     padding: 8px 16px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    border: 2px solid #0A3D62;
 }
 
 .btn-login:hover {
-    background-color: #e6e6e6;
+    background-color: #E7ECF1;
 }
 
