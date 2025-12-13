@@ -3,4 +3,5 @@ from django.apps import AppConfig
 
 class AcercadeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'acercade'
+    name = 'apps.acercade'
+    verbose_name = 'Eventos'
