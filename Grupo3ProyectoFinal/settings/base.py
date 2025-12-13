@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'apps.acercade.apps.AcercadeConfig',
     'apps.contacto.apps.ContactoConfig',
     'apps.eventos.apps.EventosConfig',
+    'apps.noticias.apps.NoticiasConfig',
 ]
 
 MIDDLEWARE = [
