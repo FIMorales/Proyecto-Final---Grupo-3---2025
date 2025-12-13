@@ -21,7 +21,7 @@ class Noticia(models.Model):
     imagen = models.ImageField(upload_to='media', default='static/post_default.png' , null=True, blank=True)    
     
     class Meta:
-        ordering = ['-publicado']
+        ordering = ['-fecha_publicacion']
     def __str__(self):
         return self.titulo
     def delete(self, using = None, keep_parents = False):
