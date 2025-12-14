@@ -5,12 +5,15 @@ from django.utils import timezone
 
 #le voy a poner cat en vez de categoria, porque categoria ya lo tenemos en eventos, y no quiero borrar nada por las dudas jajaj
 class Cat(models.Model):
-     nombre = models.CharField(max_length=100, null=False, blank=False)
+    categoria_id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100, null=False, blank=False)
+    descripcion = models.TextField()
 
-     def __str__(self):
+    def __str__(self):
          return self.nombre
      
 class Noticia(models.Model):
+    id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=200, null=False, blank=False)
     subtitulo = models.CharField(max_length=300, null=False, blank=False)
     contenido = models.TextField(null=False, blank=False)

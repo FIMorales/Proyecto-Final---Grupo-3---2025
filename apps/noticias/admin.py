@@ -11,3 +11,7 @@ class NoticiaAdmin(admin.ModelAdmin):
     ordering = ('-fecha_publicacion',)
 
 admin.site.register(Cat)
+class CatAdmin(admin.ModelAdmin):
+    list_display = ('categoria_id', 'nombre', 'descripcion')
+    list_filter = ('nombre',)
+    search_fields = ('nombre')
