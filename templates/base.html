@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="es-ar">
 
@@ -18,23 +19,16 @@
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm" style="background-color: #06273F!important;">
-        <div class="container">
 
             <!-- Botones -->
             <div class="d-flex align-items-center gap-2">
-
-                <a href="{% url 'index' %}" class="btn btn-sm btn-outline-secondary">Inicio</a>
-                <a href="{% url 'apps.noticias:noticias' %}" class="btn btn-sm btn-outline-secondary">Noticias</a>
-                <a href="{% url 'sobre_nosotros' %}" class="btn btn-sm btn-outline-secondary">Sobre nosotros</a>
-                <a href="{% url 'apps.contacto:contacto' %}" class="btn btn-sm btn-outline-secondary">Contacto</a>
-
                 {% if user.is_authenticated %}
                     <span class="text-white ms-3 small">
                         Hola, <strong>{{ user.username }}</strong>
                     </span>
 
                     {% if user.imagen %}
-                        <img src="{{ user.imagen.url }}" alt="Perfil"
+                        <img src="{ % static 'img/user-default.png' %}" alt="Perfil"
                              class="rounded-circle ms-2"
                              style="height:40px; width:40px; object-fit:cover;">
                     {% endif %}
@@ -52,13 +46,20 @@
                     <a href="{% url 'apps.usuario:registrar' %}" class="btn btn-sm btn-outline-primary">
                         Registrarse
                     </a>
-                {% endif %}
+                {% endif %} 
+                <a href="{% url 'index' %}" class="btn btn-sm btn-outline-secondary" style="color: white!important;">Inicio</a>
+                <a href="{% url 'apps.noticias:noticias' %}" class="btn btn-sm btn-outline-secondary" style="color: white!important;">Noticias</a>
+                <a href="{% url 'sobre_nosotros' %}" class="btn btn-sm btn-outline-secondary" style="color: white!important;">Sobre nosotros</a>
+                <a href="{% url 'apps.contacto:contacto' %}" class="btn btn-sm btn-outline-secondary" style="color: white!important;">Contacto</a>
+                <!-- Logo -->
+                    <img src="{% static 'img/infologo.png' %}" alt="logo"
+                 style="max-height:90px; object-fit:contain;">
+                </div>
+
+               
+
             </div>
 
-            <!-- Logo -->
-            <img src="{% static 'img/infologo.png' %}" alt="logo"
-                 style="max-height:90px; object-fit:contain;">
-        </div>
     </nav>
 </header>
 
