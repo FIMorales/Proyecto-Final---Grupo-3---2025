@@ -1,0 +1,90 @@
+
+{% extends 'base.html' %}
+
+
+{% block title %} Inicio {% endblock title %}
+
+{% block contenido %}
+
+<div class="container py-5">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Bienvenido al sitio de noticias</h1>
+        <p class="text-muted">
+            Informate con las últimas novedades y participá comentando.
+        </p>
+    </div>
+
+    <!-- Usuario -->
+    {% if user.is_authenticated %}
+        <div class="card mx-auto shadow-sm mb-5" style="max-width: 420px;">
+            <div class="card-body text-center">
+
+                {% if user.imagen %}
+                    <img src="{{ user.imagen.url }}"
+                         class="rounded-circle mb-3"
+                         style="height:120px; width:120px; object-fit:cover;"
+                         alt="Foto de perfil">
+                {% endif %}
+
+                <h5 class="card-title">
+                    Hola, {{ user.username }}
+                </h5>
+
+                <p class="text-muted mb-3">
+                    Gracias por ser parte de nuestra comunidad.
+                </p>
+
+                <a href="{% url 'apps.noticias:noticias' %}" class="btn btn-outline-primary">
+                    Ver noticias
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="text-center mb-5">
+            <a href="{% url 'apps.usuario:login' %}" class="btn btn-primary btn-lg">
+                Iniciar sesión
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- Últimas noticias -->
+    <hr class="my-5">
+
+    <h3 class="mb-4 text-center">Últimas noticias</h3>
+
+    <div class="row">
+        {% for noticia in ultimas_noticias %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+
+                    {% if noticia.imagen %}
+                        <img src="{{ noticia.imagen.url }}"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;"
+                             alt="imagen noticia">
+                    {% endif %}
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ noticia.titulo }}</h5>
+                        <p class="card-text text-muted">
+                            {{ noticia.subtitulo|truncatewords:20 }}
+                        </p>
+
+                        <a href="{% url 'apps.noticias:noticia_individual' noticia.id %}"
+                           class="btn btn-outline-primary mt-auto">
+                            Leer más
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">No hay noticias para mostrar.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock contenido %}
+

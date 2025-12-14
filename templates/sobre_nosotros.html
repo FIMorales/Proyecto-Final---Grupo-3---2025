@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %} Sobre nosotros {% endblock title %}
+
+{% block contenido %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-4">
+        <h2>Sobre nosotros</h2>
+        <p class="text-muted">
+            Conocé quiénes somos y qué hacemos
+        </p>
+    </div>
+
+    <div class="card shadow-sm mx-auto" style="max-width: 900px;">
+        <div class="card-body">
+
+            <p>
+                Somos un sitio web de noticias desarrollado como proyecto académico,
+                con el objetivo de aplicar conocimientos de desarrollo web utilizando Django.
+            </p>
+
+            <p>
+                Nuestro sitio permite a los usuarios informarse a través de noticias organizadas
+                por categorías y participar activamente dejando comentarios.
+                Los usuarios colaboradores tienen la posibilidad de crear y gestionar contenido,
+                mientras que los usuarios registrados pueden interactuar comentando las publicaciones.
+            </p>
+
+            <p>
+                El sistema cuenta con control de usuarios, roles y permisos,
+                garantizando una correcta gestión del contenido y la participación.
+            </p>
+
+            <p class="mb-0">
+                Este proyecto fue desarrollado utilizando <strong>Python, Django, HTML y Bootstrap</strong>,
+                y forma parte del trabajo práctico del <strong>Informatorio 2025</strong>.
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock contenido %}

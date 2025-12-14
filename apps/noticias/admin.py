@@ -1,17 +1,11 @@
 from django.contrib import admin
-from .models import Cat, Noticia
+from .models import Categoria, Noticia, Comentario
 
 # Register your models here.
-admin.site.register(Noticia)
 
+@admin.register(Noticia)
 class NoticiaAdmin(admin.ModelAdmin):
-    list_display = ('id','titulo', 'subtitulo', 'fecha_publicacion', 'activo', 'categoria', 'imagen', 'contenido')
-    list_filter = ('categoria', 'fecha_publicacion')
-    search_fields = ('titulo', 'subtitulo', 'contenido')
-    ordering = ('-fecha_publicacion',)
-
-admin.site.register(Cat)
-class CatAdmin(admin.ModelAdmin):
-    list_display = ('categoria_id', 'nombre', 'descripcion')
-    list_filter = ('nombre',)
-    search_fields = ('nombre')
+    list_display = ('titulo', 'subtitulo', 'fecha', 'texto', 'activo', 'categoria', 'imagen', 'publicado')
+    
+admin.site.register(Categoria)
+admin.site.register(Comentario)

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container my-5">
+    <div class="card mx-auto shadow-sm" style="max-width: 600px;">
+        <div class="card-body text-center">
+
+            <h2 class="card-title mb-4">Eliminar Noticia</h2>
+
+            <p class="mb-4">
+                ¿Estás seguro de que querés eliminar la noticia
+                <strong>"{{ object.titulo }}"</strong>?
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                    <a href="{% url 'apps.noticias:noticia_individual' id=object.id %}" 
+                       class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

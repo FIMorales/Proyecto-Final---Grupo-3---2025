@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Iniciar sesión {% endblock title %}
+
+{% block contenido %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+
+    <div class="card shadow-sm p-4" style="max-width: 420px; width: 100%;">
+        
+        <h2 class="text-center mb-4">Iniciar sesión</h2>
+
+        <!-- Mensajes -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Iniciar sesión
+                </button>
+            </div>
+        </form>
+
+        <hr>
+
+        <div class="text-center">
+            <p class="mb-1">
+                <a href="{% url 'apps.usuario:registrar' %}">
+                    ¿Todavía no estás registrado?
+                </a>
+            </p>
+
+            <p class="mb-0">
+                <a href="{% url 'apps.usuario:password_reset' %}">
+                    ¿Olvidaste tu contraseña?
+                </a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock contenido %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container my-5">
+    <!-- Botón crear categoría -->
+    <div class="mb-4 text-end">
+        <a class="btn btn-outline-secondary"
+           href="{% url 'apps.noticias:crear_categoria' %}?next={% url 'apps.noticias:noticia_update' pk=object.id %}">
+           Crear nueva Categoría
+        </a>
+    </div>
+
+    <!-- Formulario -->
+    <div class="card mx-auto shadow-sm" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Modificar Noticia</h2>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

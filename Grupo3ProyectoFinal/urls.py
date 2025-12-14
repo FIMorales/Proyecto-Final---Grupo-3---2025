@@ -1,8 +1,8 @@
 """
-URL configuration for Grupo3ProyectoFinal project.
+URL configuration for blog_grupo3_com7 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,18 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import inicio 
+from .views import index, sobre_nosotros
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('', inicio, name="inicio"),
-
-    path('acercade/', include('apps.acercade.urls')),
-
-    path('categorias/', include('apps.categorias.urls')),
-
-    path('contacto/', include('apps.contacto.urls')),
-
-    path('login/', include('apps.login.urls'))
-]
+    path('', index, name='index'),
+    path('sobre_nosotros', sobre_nosotros, name='sobre_nosotros'),
+    path('', include('apps.noticias.urls')),
+    path('', include('apps.contacto.urls')),
+    path('', include('apps.usuario.urls')),
+    
+    path('', include('django.contrib.auth.urls')),
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
