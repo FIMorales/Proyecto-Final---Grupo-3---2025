@@ -15,8 +15,8 @@ class Categoria(models.Model):
 
 
 class Noticia(models.Model):
-    titulo = models.CharField(max_length=50, null=False)
-    subtitulo = models.CharField(max_length=100, null=True, blank=True)
+    titulo = models.CharField(max_length=200, null=False)
+    subtitulo = models.CharField(max_length=300, null=True, blank=True)
     fecha = models.DateField(auto_now_add=True)
     texto = models.TextField(null=False)
     activo = models.BooleanField(default=True)
