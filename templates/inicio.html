@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-    <title>HOME</title>
+    <title>{% block titulo %} HOME</title>
 </head>
 <body>
     <header>
@@ -22,7 +21,7 @@
                 <a href="/">Inicio</a>
             </li>
             <li>
-                <a href="/categorias">Categorias</a>
+                <a href="/categorias">Noticias</a>
             </li>
             <li>
                 <a href="/acercade">Acerca de</a>
@@ -32,16 +31,20 @@
             </li>
         </ul>
     </nav>
-    <section>
-        <div class="estiloborder">
-            <p style="color: rgb(0, 0, 0)" class="centrado negrita cursiva">
+
+    <main>
+        {% block contenido %}
+        <section>
+            <div class="estiloborder">
+              <p style="color: rgb(0, 0, 0)" class="centrado negrita cursiva">
                 Bienvenido a nuestro portal de noticias sobre Realidad Virtual, Realidad Aumentada y Realidad Mixta <br>
                 Vas a encontrar todo tipo de información sobre Videojuegos, educación inmersiva, arquitectura, medicina con AR/VR.!
-            </p>
+                </p>
 
-        </div>
-    </section>
-
+            </div>
+        </section>
+        {% endblock %}
+    </main>
     <footer class="footer-content">
         <p>Derechos de autor © 2025 | TechnoDiario</p>
     </footer>
