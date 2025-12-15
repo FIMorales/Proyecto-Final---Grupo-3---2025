@@ -104,6 +104,7 @@ class NoticiaDeleteViews(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('apps.noticias:noticias' )
     
     
+
 ## vista de filtrar noticia por categoria   
 def noticias_por_categoria(request, categoria_id):
     categoria = get_object_or_404(Categoria, id=categoria_id)
