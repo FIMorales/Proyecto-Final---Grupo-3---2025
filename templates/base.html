@@ -16,48 +16,27 @@
 
 <body class="d-flex flex-column min-vh-100 bg-light">
 
-    <header>
-        
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm"
-            style="background-color: #06273F!important;">
-            
-            <div class="container">
-                
-                <!-- Botones -->
-                <div class="d-flex align-items-center gap-2">
-                    
-                    <div class="dropdown">
-                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown">
-                            Categorías
-                        </button>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm" style="background-color: #06273F!important;">
+        <div class="container">
 
-                        <ul class="dropdown-menu">
-                            {% for categoria in categorias %}
-                            <li>
-                                <a class="dropdown-item" href="{% url 'apps.noticias:por_categoria' categoria.id %}">
-                                    {{ categoria.nombre }}
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    
+            <!-- Botones -->
+            <div class="d-flex align-items-center gap-2">
 
+                <a href="{% url 'index' %}" class="btn btn-sm btn-outline-secondary">Inicio</a>
+                <a href="{% url 'apps.noticias:noticias' %}" class="btn btn-sm btn-outline-secondary">Noticias</a>
+                <a href="{% url 'sobre_nosotros' %}" class="btn btn-sm btn-outline-secondary">Sobre nosotros</a>
+                <a href="{% url 'apps.contacto:contacto' %}" class="btn btn-sm btn-outline-secondary">Contacto</a>
 
-                    <a href="{% url 'index' %}" class="btn btn-sm btn-outline-secondary">Inicio</a>
-                    <a href="{% url 'apps.noticias:noticias' %}" class="btn btn-sm btn-outline-secondary">Noticias</a>
-                    <a href="{% url 'sobre_nosotros' %}" class="btn btn-sm btn-outline-secondary">Sobre nosotros</a>
-                    <a href="{% url 'apps.contacto:contacto' %}" class="btn btn-sm btn-outline-secondary">Contacto</a>
-
-                    {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <span class="text-white ms-3 small">
                         Hola, <strong>{{ user.username }}</strong>
                     </span>
 
                     {% if user.imagen %}
-                    <img src="{{ user.imagen.url }}" alt="Perfil" class="rounded-circle ms-2"
-                        style="height:40px; width:40px; object-fit:cover;">
+                        <img src="{{ user.imagen.url }}" alt="Perfil"
+                             class="rounded-circle ms-2"
+                             style="height:40px; width:40px; object-fit:cover;">
                     {% endif %}
 
                     <form method="post" action="{% url 'apps.usuario:logout' %}" class="ms-3">
@@ -73,14 +52,15 @@
                     <a href="{% url 'apps.usuario:registrar' %}" class="btn btn-sm btn-outline-primary">
                         Registrarse
                     </a>
-                    {% endif %}
-                </div>
-
-                <!-- Logo -->
-                <img src="{% static 'img/infologo.png' %}" alt="logo" style="max-height:90px; object-fit:contain;">
+                {% endif %}
             </div>
-        </nav>
-    </header>
+
+            <!-- Logo -->
+            <img src="{% static 'img/infologo.png' %}" alt="logo"
+                 style="max-height:90px; object-fit:contain;">
+        </div>
+    </nav>
+</header>
 
     <main class="container my-4 flex-grow-1">
         {% block contenido %}
