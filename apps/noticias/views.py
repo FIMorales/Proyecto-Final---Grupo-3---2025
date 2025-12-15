@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import render ,redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -102,6 +102,23 @@ class NoticiaDeleteViews(LoginRequiredMixin, DeleteView):
     model = Noticia
     template_name = 'noticias/eliminar_noticia.html'
     success_url = reverse_lazy('apps.noticias:noticias' )
+    
+    
+## vista de filtrar noticia por categoria   
+def noticias_por_categoria(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+
+    noticias = Noticia.objects.filter(
+        categoria=categoria,
+        activo=True
+    )
+
+    return render(request, 'noticias/noticias_por_categoria.html', {
+        'categoria': categoria,
+        'noticias': noticias
+    })
+    
+
     
     
 @login_required
