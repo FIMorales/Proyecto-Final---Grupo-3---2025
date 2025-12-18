@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 from .models import Noticia, Comentario, Categoria
 from .forms import ComentarioForm, CrearNoticiaForm, NuevaCategoriaForm
@@ -122,11 +123,34 @@ def noticias_por_categoria(request, categoria_id):
 
     
     
-@login_required
+
 def like_noticia(request, pk):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
     noticia = get_object_or_404(Noticia, pk=pk)
+
     if request.user in noticia.likes.all():
         noticia.likes.remove(request.user)
     else:
         noticia.likes.add(request.user)
+
     return redirect('apps.noticias:noticia_individual', id=noticia.id)
+
+
+## Buscador de noticias
+class BuscarNoticiasView(ListView):
+    model = Noticia
+    template_name = "noticias/buscar.html"
+    context_object_name = "noticias"
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+
+        if query:
+            return Noticia.objects.filter(
+                Q(titulo__icontains=query) |
+                Q(texto__icontains=query)
+            )
+
+        return Noticia.objects.none()

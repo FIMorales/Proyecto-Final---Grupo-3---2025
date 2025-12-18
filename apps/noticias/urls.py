@@ -16,4 +16,5 @@ urlpatterns = [
     path("noticia/<int:pk>/eliminar/", NoticiaDeleteViews.as_view(), name="noticia_delete"),
     path('noticia/<int:pk>/like/', like_noticia, name='noticia_like'),
     path('categoria/<int:categoria_id>/',noticias_por_categoria, name='por_categoria'),
+    path("buscar/", BuscarNoticiasView.as_view(), name="buscar_noticias")
 ]

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados de búsqueda{% endblock title %}
+
+{% block contenido %}
+
+<h2>Resultados de búsqueda</h2>
+
+{% if request.GET.q %}
+    <p>Buscaste: <strong>{{ request.GET.q }}</strong></p>
+
+    {% if noticias %}
+        {% for noticia in noticias %}
+            <article class="mb-4">
+                <h3>{{ noticia.titulo }}</h3>
+                <p>{{ noticia.texto|truncatewords:30 }}</p>
+                <a href="{% url 'apps.noticias:noticia_individual' noticia.pk %}" class="btn btn-sm btn-primary">
+                    Leer más
+                </a>
+            </article>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+{% else %}
+    <p>Ingresá un término de búsqueda.</p>
+{% endif %}
+
+{% endblock contenido %}
+
+
+
