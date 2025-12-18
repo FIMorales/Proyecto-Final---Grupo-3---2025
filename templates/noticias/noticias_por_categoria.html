@@ -15,6 +15,10 @@
             {% endif %}
 
             <p>{{ noticia.texto|truncatewords:40 }}</p>
+
+            <a href="{% url 'apps.noticias:noticia_individual' noticia.pk %}" class="btn btn-sm btn-primary">
+                Leer más
+            </a>
         </article>
         <hr>
     {% endfor %}
